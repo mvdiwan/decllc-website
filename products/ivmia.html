@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IVMIA — Virtualization Management, Inventory & Analytics</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="../index.html" class="logo">
+      <img src="../assets/icon-only.jpg" alt="DEC-LLC">
+      <div class="logo-text"><span class="logo-name">DEC-LLC</span><svg class="logo-squiggle" viewBox="0 0 80 6" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 Q10 0, 20 3 Q30 6, 40 3 Q50 0, 60 3 Q70 6, 80 3" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none"/></svg><span class="logo-slogan">Open Ideas</span></div>
+      
+    </a>
+    <ul>
+      <li><a href="../index.html#products">Products</a></li>
+      <li><a href="../index.html#pricing">Pricing</a></li>
+      <li><a href="../index.html#opensource">Open Source</a></li>
+      <li><a href="../store.html">Store</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../store.html" class="nav-cta">Buy Now</a>
+  </div>
+</nav>
+
+<!-- Product Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>IVMIA</h1>
+    <p>Iterative Infrastructure and Virtualization Management Inventory and Analytics</p>
+    <p style="opacity:0.7;font-size:1rem;">One platform to manage them all. Unified visibility across 8 virtualization platforms.</p>
+    <a href="../index.html#pricing" class="cta">Start Free Trial</a>
+    <a href="#features" class="cta-secondary">See Features</a>
+  </div>
+</section>
+
+<!-- Platform Support -->
+<section>
+  <div class="container">
+    <h2>8 Platforms, One Dashboard</h2>
+    <p class="subtitle">IVMIA connects to every major virtualization and container platform, normalizing data into a unified view.</p>
+
+    <div class="product-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F7E2;</div>
+        <h3>VMware ESXi</h3>
+        <p>vSphere VMs via SSH and pyVmomi SDK</p>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F7E0;</div>
+        <h3>Proxmox VE</h3>
+        <p>QEMU VMs and LXC containers via SSH and REST API</p>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A5;</div>
+        <h3>KVM / QEMU</h3>
+        <p>Virtual machines via virsh and native API</p>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F537;</div>
+        <h3>Hyper-V</h3>
+        <p>Windows VMs via PowerShell SSH and WinRM</p>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F433;</div>
+        <h3>Docker / Podman</h3>
+        <p>Containers via CLI and Docker SDK</p>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x2638;</div>
+        <h3>Kubernetes</h3>
+        <p>Pods, deployments, services via K8s API</p>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F536;</div>
+        <h3>Incus / LXD</h3>
+        <p>Instances via REST API with TLS certs</p>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F4E6;</div>
+        <h3>VirtualBox</h3>
+        <p>VMs via VBoxManage over SSH or WinRM</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Features -->
+<section id="features" style="background:#fff;">
+  <div class="container">
+    <h2>Key Features</h2>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>Unified Dashboard</h3>
+        <p>See all hosts, workloads, and metrics across every platform in a single web interface. No more switching between vCenter, Proxmox UI, and kubectl.</p>
+      </div>
+      <div class="product-card">
+        <h3>Dual-Transport Architecture</h3>
+        <p>Every platform supports two transport methods (SSH + API) with automatic failover. If one path goes down, collection continues via the other.</p>
+      </div>
+      <div class="product-card">
+        <h3>Federated Multi-Site</h3>
+        <p>Deploy sub-cores at remote sites that collect locally and sync to a central core. Works across VPNs and high-latency links.</p>
+      </div>
+      <div class="product-card">
+        <h3>Lightweight Agents</h3>
+        <p>Base agent monitors any Linux or Windows host. Platform extensions add workload-specific collection. Packages under 100KB. No Java, no heavy dependencies.</p>
+      </div>
+      <div class="product-card">
+        <h3>Operations Management</h3>
+        <p>Start, stop, restart, snapshot, and manage workloads directly from the web UI. Confirmation dialogs on destructive operations. Full audit trail.</p>
+      </div>
+      <div class="product-card">
+        <h3>Analysis & Trending</h3>
+        <p>CPU, memory, disk, and network trends over time. Capacity heatmaps. Cross-platform comparison radar charts. All powered by Chart.js with AJAX auto-refresh.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture Overview -->
+<section>
+  <div class="container">
+    <h2>Architecture</h2>
+    <p class="subtitle">Designed for heterogeneous environments and distributed deployments.</p>
+    <div style="max-width:800px;margin:0 auto;background:#fff;padding:32px;border-radius:var(--radius);box-shadow:var(--shadow);">
+      <pre style="font-size:0.85rem;line-height:1.5;color:var(--text-muted);overflow-x:auto;">
+Central Core (PostgreSQL + Apache/PHP + Python Collectors)
+    |
+    +-- Web UI (dashboards, operations, analysis, search)
+    +-- REST API (FastAPI — agents, federation, RBAC)
+    +-- Super Orchestrator (drives platform-specific collectors)
+    |       +-- VMware ESXi, Proxmox, KVM, Hyper-V
+    |       +-- Docker, Kubernetes, Incus, VirtualBox
+    |
+    +-- Federation Sync <-- Sub-Core (remote site)
+    |                        +-- Local DB + collectors
+    |                        +-- Pushes data to central
+    |
+    +-- Agent Manager <-- Host Agents (RPM/DEB/MSI)
+                          +-- Base: host metrics
+                          +-- Extensions: workload collection
+      </pre>
+    </div>
+  </div>
+</section>
+
+<!-- Packaging -->
+<section style="background:#fff;">
+  <div class="container">
+    <h2>Easy Deployment</h2>
+    <p class="subtitle">Install from packages. No containers required. No cloud dependency.</p>
+    <div class="product-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="product-card" style="text-align:center;">
+        <div style="font-size:2rem;">&#x1F4E6;</div>
+        <h3>RPM</h3>
+        <p>Rocky Linux, RHEL, CentOS, Alma</p>
+      </div>
+      <div class="product-card" style="text-align:center;">
+        <div style="font-size:2rem;">&#x1F4E6;</div>
+        <h3>DEB</h3>
+        <p>Debian, Ubuntu, Proxmox</p>
+      </div>
+      <div class="product-card" style="text-align:center;">
+        <div style="font-size:2rem;">&#x1F4BB;</div>
+        <h3>Windows</h3>
+        <p>NSIS installer for Hyper-V and VirtualBox</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);color:#fff;text-align:center;">
+  <div class="container">
+    <h2 style="color:#fff;">Ready to unify your infrastructure?</h2>
+    <p style="opacity:0.8;max-width:500px;margin:12px auto 24px;">Start free with up to 2 hosts. Professional plans from $330/mo per product.</p>
+    <a href="../index.html#pricing" class="cta" style="background:#fff;color:var(--primary);">View Pricing</a>
+    <a href="mailto:sales@decllc.biz" class="cta-secondary">Contact Sales</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>
+      <img src="../assets/icon-only.jpg" alt="DEC-LLC" style="height:56px;margin-bottom:8px;">
+      <p style="font-style:italic;opacity:0.9;margin-bottom:4px;">Open Ideas</p>
+      <p>&copy; 2026 DEC-LLC. All rights reserved.</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html#products">Products</a>
+      <a href="../index.html#pricing">Pricing</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

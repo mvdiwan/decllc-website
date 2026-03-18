@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store — DEC-LLC Infrastructure Software</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .store-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+    .store-card { background: var(--card); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    .store-card h3 { font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+    .store-card .tier { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+    .store-card .price-line { font-size: 1.6rem; font-weight: 900; color: var(--primary); margin: 12px 0; }
+    .store-card .price-line span { font-size: 0.85rem; font-weight: 400; color: var(--text-muted); }
+    .store-card .details { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+    .store-card ul { list-style: none; margin: 12px 0; }
+    .store-card ul li { padding: 6px 0; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+    .store-card ul li::before { content: '\2713 '; color: var(--teal); font-weight: 700; }
+    .payment-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+    .pay-btn { display: block; width: 100%; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-align: center; border: none; cursor: pointer; }
+    .pay-stripe { background: #635bff; color: #fff; }
+    .pay-stripe:hover { background: #4b44c9; }
+    .pay-paypal { background: #ffc439; color: #111; }
+    .pay-paypal:hover { background: #f0b420; }
+    .pay-contact { background: var(--primary); color: #fff; }
+    .pay-contact:hover { background: var(--primary-light); }
+    .store-note { text-align: center; margin-top: 32px; padding: 20px; background: #fff; border-radius: var(--radius); border: 1px solid var(--border); }
+    .store-note h3 { color: var(--primary); margin-bottom: 8px; }
+    .payment-logos { display: flex; gap: 16px; justify-content: center; align-items: center; margin-top: 24px; opacity: 0.6; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="assets/icon-only.jpg" alt="DEC-LLC">
+      <div class="logo-text"><span class="logo-name">DEC-LLC</span><svg class="logo-squiggle" viewBox="0 0 80 6" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 Q10 0, 20 3 Q30 6, 40 3 Q50 0, 60 3 Q70 6, 80 3" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none"/></svg><span class="logo-slogan">Open Ideas</span></div>
+    </a>
+    <ul>
+      <li><a href="index.html#products">Products</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="store.html">Store</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="store.html" class="nav-cta">Buy Now</a>
+  </div>
+</nav>
+
+<section class="hero" style="padding:50px 0 40px;">
+  <div class="container">
+    <h1>Store</h1>
+    <p>Purchase licenses, subscriptions, and support contracts for DEC-LLC products.</p>
+  </div>
+</section>
+
+<!-- Professional Tier Products -->
+<section>
+  <div class="container">
+    <h2>Professional Subscriptions</h2>
+    <p class="subtitle">$330/month per product. 30-day evaluation period included.</p>
+
+    <div class="store-grid">
+
+      <!-- IVMIA Professional -->
+      <div class="store-card">
+        <h3>IVMIA Professional</h3>
+        <div class="tier">Virtualization Management</div>
+        <div class="price-line">$330<span>/mo per host</span></div>
+        <ul>
+          <li>2 platforms included (choose any 2)</li>
+          <li>Full collector suite for selected platforms</li>
+          <li>Web dashboards + REST API</li>
+          <li>Email support (48hr response)</li>
+          <li>Federated multi-site support</li>
+          <li>Quarterly updates</li>
+        </ul>
+        <p class="details">Additional platforms and extensions available — <a href="mailto:sales@decllc.biz">contact us</a> for pricing.</p>
+        <div class="payment-buttons">
+          <button class="pay-btn pay-stripe" onclick="stripeCheckout('ivmia-professional')">Pay with Card (Stripe)</button>
+          <div id="paypal-ivmia-pro"></div>
+        </div>
+      </div>
+
+      <!-- NIVMIA Professional -->
+      <div class="store-card">
+        <h3>NIVMIA Professional</h3>
+        <div class="tier">Network Infrastructure Management</div>
+        <div class="price-line">$330<span>/mo per 5 devices</span></div>
+        <ul>
+          <li>2 platforms included (choose any 2)</li>
+          <li>SNMP/LLDP/CDP discovery</li>
+          <li>Network topology mapping</li>
+          <li>Email support (48hr response)</li>
+          <li>Configuration backup</li>
+          <li>Quarterly updates</li>
+        </ul>
+        <p class="details">Additional platforms available — <a href="mailto:sales@decllc.biz">contact us</a>.</p>
+        <div class="payment-buttons">
+          <button class="pay-btn pay-stripe" onclick="stripeCheckout('nivmia-professional')">Pay with Card (Stripe)</button>
+          <div id="paypal-nivmia-pro"></div>
+        </div>
+      </div>
+
+      <!-- OpenUTM Professional -->
+      <div class="store-card">
+        <h3>OpenUTM Professional</h3>
+        <div class="tier">Unified Threat Management</div>
+        <div class="price-line">$330<span>/mo per firewall pair</span></div>
+        <ul>
+          <li>Full UTM stack (firewall, NAT, VPN, DNS, DHCP)</li>
+          <li>Proxy + WAF modules</li>
+          <li>IDS/IPS engine</li>
+          <li>Email support (48hr response)</li>
+          <li>Quarterly updates</li>
+        </ul>
+        <p class="details">HA plugins available separately — <a href="mailto:sales@decllc.biz">contact us</a>.</p>
+        <div class="payment-buttons">
+          <button class="pay-btn pay-stripe" onclick="stripeCheckout('openutm-professional')">Pay with Card (Stripe)</button>
+          <div id="paypal-openutm-pro"></div>
+        </div>
+      </div>
+
+      <!-- IPv6Auto Professional -->
+      <div class="store-card">
+        <h3>IPv6Auto Professional</h3>
+        <div class="tier">IPv6 Automation</div>
+        <div class="price-line">$330<span>/mo</span></div>
+        <ul>
+          <li>Automated IPv6 address planning</li>
+          <li>Dual-stack configuration</li>
+          <li>DNS + firewall rule generation</li>
+          <li>Compliance validation</li>
+          <li>Email support (48hr response)</li>
+        </ul>
+        <div class="payment-buttons">
+          <button class="pay-btn pay-stripe" onclick="stripeCheckout('ipv6auto-professional')">Pay with Card (Stripe)</button>
+          <div id="paypal-ipv6auto-pro"></div>
+        </div>
+      </div>
+
+      <!-- CAAN Professional -->
+      <div class="store-card">
+        <h3>CAAN System Tools Professional</h3>
+        <div class="tier">Advanced Network Wizards</div>
+        <div class="price-line">$330<span>/mo</span></div>
+        <ul>
+          <li>All network configuration wizards</li>
+          <li>REST API + SDK access</li>
+          <li>Template library</li>
+          <li>Multi-host deployment</li>
+          <li>Email support (48hr response)</li>
+        </ul>
+        <div class="payment-buttons">
+          <button class="pay-btn pay-stripe" onclick="stripeCheckout('caan-professional')">Pay with Card (Stripe)</button>
+          <div id="paypal-caan-pro"></div>
+        </div>
+      </div>
+
+      <!-- FireMigrate Professional -->
+      <div class="store-card">
+        <h3>FireMigrate Professional</h3>
+        <div class="tier">Firewall Migration</div>
+        <div class="price-line">$330<span>/mo</span></div>
+        <ul>
+          <li>All vendor import/export formats</li>
+          <li>Semantic rule preservation</li>
+          <li>NAT + alias mapping</li>
+          <li>Migration reports</li>
+          <li>Email support (48hr response)</li>
+        </ul>
+        <div class="payment-buttons">
+          <button class="pay-btn pay-stripe" onclick="stripeCheckout('firemigrate-professional')">Pay with Card (Stripe)</button>
+          <div id="paypal-firemigrate-pro"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Enterprise -->
+<section style="background:#fff;">
+  <div class="container">
+    <h2>Enterprise Contracts</h2>
+    <p class="subtitle">Starting at $10,000/month. Custom support contracts with dedicated account management.</p>
+
+    <div class="store-note">
+      <h3>Contact Sales for Enterprise Pricing</h3>
+      <p style="color:var(--text-muted);max-width:600px;margin:8px auto 16px;">Enterprise contracts include dedicated support (business hours M-F), account management, custom integrations, and volume licensing. Each contract is tailored to your environment.</p>
+      <a href="mailto:sales@decllc.biz?subject=Enterprise%20Contract%20Inquiry" class="pay-btn pay-contact" style="display:inline-block;width:auto;padding:12px 32px;">Contact Sales — sales@decllc.biz</a>
+      <br><br>
+      <a href="tel:+12012549971" style="color:var(--text-muted);">Or call (201) 254-9971</a>
+    </div>
+  </div>
+</section>
+
+<!-- Community (Free) -->
+<section>
+  <div class="container">
+    <h2>Community Edition (Free)</h2>
+    <p class="subtitle">Get started with up to 2 managed hosts. No credit card required.</p>
+
+    <div class="store-note">
+      <h3>Download Community Edition</h3>
+      <p style="color:var(--text-muted);max-width:600px;margin:8px auto 16px;">The Community tier includes the base host agent, documentation, and community support via GitHub Issues. Free forever for up to 2 hosts.</p>
+      <a href="https://github.com/mvdiwan/IVMIA/releases" class="pay-btn pay-stripe" style="display:inline-block;width:auto;padding:12px 32px;background:var(--teal);">Download from GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- Payment Security -->
+<section style="background:#fff;">
+  <div class="container" style="text-align:center;">
+    <p style="color:var(--text-muted);font-size:0.9rem;">Secure payments processed by Stripe and PayPal. We never store your card details.</p>
+    <div class="payment-logos">
+      <span>Visa</span>
+      <span>Mastercard</span>
+      <span>Amex</span>
+      <span>Stripe</span>
+      <span>PayPal</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>
+      <img src="assets/icon-only.jpg" alt="DEC-LLC" style="height:56px;margin-bottom:8px;">
+      <p style="font-style:italic;opacity:0.9;margin-bottom:4px;">Open Ideas</p>
+      <p>&copy; 2026 DEC-LLC. All rights reserved.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#products">Products</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="store.html">Store</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="mailto:info@decllc.biz">info@decllc.biz</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Stripe Checkout -->
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+// ============================================================
+// STRIPE INTEGRATION
+// ============================================================
+// Replace with your Stripe publishable key from:
+// https://dashboard.stripe.com/test/apikeys (test mode)
+// https://dashboard.stripe.com/apikeys (live mode)
+var STRIPE_PK = 'pk_test_REPLACE_WITH_YOUR_STRIPE_PUBLISHABLE_KEY';
+
+// Price IDs from Stripe Dashboard > Products
+// Create products in Stripe Dashboard, then paste price IDs here
+var STRIPE_PRICES = {
+  'ivmia-professional':      'price_REPLACE_IVMIA_PRO',
+  'nivmia-professional':     'price_REPLACE_NIVMIA_PRO',
+  'openutm-professional':    'price_REPLACE_OPENUTM_PRO',
+  'ipv6auto-professional':   'price_REPLACE_IPV6AUTO_PRO',
+  'caan-professional':       'price_REPLACE_CAAN_PRO',
+  'firemigrate-professional': 'price_REPLACE_FIREMIGRATE_PRO',
+};
+
+function stripeCheckout(productId) {
+  var priceId = STRIPE_PRICES[productId];
+  if (!priceId || priceId.startsWith('price_REPLACE')) {
+    // Stripe not configured yet — show contact info
+    window.location.href = 'mailto:sales@decllc.biz?subject=Purchase%20' +
+      encodeURIComponent(productId) +
+      '&body=I%20would%20like%20to%20purchase%20' +
+      encodeURIComponent(productId) +
+      '.%20Please%20send%20payment%20details.';
+    return;
+  }
+
+  var stripe = Stripe(STRIPE_PK);
+  stripe.redirectToCheckout({
+    lineItems: [{ price: priceId, quantity: 1 }],
+    mode: 'subscription',
+    successUrl: window.location.origin + '/store.html?payment=success',
+    cancelUrl: window.location.origin + '/store.html?payment=cancelled',
+  }).then(function(result) {
+    if (result.error) {
+      alert('Payment error: ' + result.error.message);
+    }
+  });
+}
+
+// Show success/cancel message if redirected back from Stripe
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('payment') === 'success') {
+    var banner = document.createElement('div');
+    banner.style.cssText = 'background:#00897b;color:#fff;padding:16px;text-align:center;font-weight:700;font-size:1.1rem;';
+    banner.textContent = 'Payment successful! Check your email for license details.';
+    document.body.insertBefore(banner, document.body.firstChild);
+  }
+  if (params.get('payment') === 'cancelled') {
+    var banner = document.createElement('div');
+    banner.style.cssText = 'background:#ff6f00;color:#fff;padding:16px;text-align:center;font-weight:700;';
+    banner.textContent = 'Payment was cancelled. No charges were made.';
+    document.body.insertBefore(banner, document.body.firstChild);
+  }
+})();
+</script>
+
+<!-- PayPal Buttons -->
+<script src="https://www.paypal.com/sdk/js?client-id=REPLACE_WITH_YOUR_PAYPAL_CLIENT_ID&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+// ============================================================
+// PAYPAL INTEGRATION
+// ============================================================
+// Replace PAYPAL_PLAN_IDS with plan IDs from PayPal Dashboard:
+// https://www.paypal.com/billing/plans
+var PAYPAL_PLANS = {
+  'ivmia-pro':      'P-REPLACE_IVMIA',
+  'nivmia-pro':     'P-REPLACE_NIVMIA',
+  'openutm-pro':    'P-REPLACE_OPENUTM',
+  'ipv6auto-pro':   'P-REPLACE_IPV6AUTO',
+  'caan-pro':       'P-REPLACE_CAAN',
+  'firemigrate-pro': 'P-REPLACE_FIREMIGRATE',
+};
+
+function renderPayPalButton(containerId, planKey) {
+  var planId = PAYPAL_PLANS[planKey];
+  if (!planId || planId.startsWith('P-REPLACE') || typeof paypal === 'undefined') return;
+
+  paypal.Buttons({
+    style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'subscribe', tagline: false },
+    createSubscription: function(data, actions) {
+      return actions.subscription.create({ plan_id: planId });
+    },
+    onApprove: function(data, actions) {
+      alert('Subscription active! ID: ' + data.subscriptionID + '\nCheck your email for details.');
+    },
+    onError: function(err) {
+      console.error('PayPal error:', err);
+    }
+  }).render('#' + containerId);
+}
+
+// Render PayPal buttons for each product
+document.addEventListener('DOMContentLoaded', function() {
+  renderPayPalButton('paypal-ivmia-pro', 'ivmia-pro');
+  renderPayPalButton('paypal-nivmia-pro', 'nivmia-pro');
+  renderPayPalButton('paypal-openutm-pro', 'openutm-pro');
+  renderPayPalButton('paypal-ipv6auto-pro', 'ipv6auto-pro');
+  renderPayPalButton('paypal-caan-pro', 'caan-pro');
+  renderPayPalButton('paypal-firemigrate-pro', 'firemigrate-pro');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 85" fill="none">
+  <!-- Flame/torch emblem -->
+  <g transform="translate(10, 5)">
+    <!-- Outer flame -->
+    <path d="M25 55 C25 55, 10 40, 15 25 C18 18, 22 12, 25 5 C28 12, 32 18, 35 25 C40 40, 25 55, 25 55Z" fill="#3498db" opacity="0.7"/>
+    <!-- Inner flame -->
+    <path d="M25 50 C25 50, 16 38, 19 28 C21 23, 23 18, 25 12 C27 18, 29 23, 31 28 C34 38, 25 50, 25 50Z" fill="#2196f3"/>
+    <!-- Core glow -->
+    <path d="M25 45 C25 45, 20 37, 22 31 C23 28, 24 25, 25 20 C26 25, 27 28, 28 31 C30 37, 25 45, 25 45Z" fill="#64b5f6"/>
+  </g>
+  <!-- Company name -->
+  <text x="70" y="35" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800" fill="currentColor">DEC-LLC</text>
+  <!-- Squiggle underscore -->
+  <path d="M70 42 Q82 38, 94 42 Q106 46, 118 42 Q130 38, 142 42 Q154 46, 166 42 Q178 38, 190 42" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Slogan -->
+  <text x="70" y="62" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="400" fill="currentColor" opacity="0.7">Open Ideas</text>
+</svg>
