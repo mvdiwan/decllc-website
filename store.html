@@ -175,6 +175,25 @@
         </div>
       </div>
 
+
+      <!-- VaultSync Professional -->
+      <div class="store-card">
+        <h3>VaultSync Professional</h3>
+        <div class="tier">VM Backup Orchestration</div>
+        <div class="price-line">$330<span>/mo per hypervisor host</span></div>
+        <ul>
+          <li>ESXi + KVM/Proxmox backup orchestration</li>
+          <li>CBT-aware incremental backups</li>
+          <li>Cross-site replication</li>
+          <li>Scheduled retention + pruning</li>
+          <li>Email support (48hr response)</li>
+        </ul>
+        <div class="payment-buttons">
+          <button class="pay-btn pay-stripe" onclick="stripeCheckout('vaultsync-professional')">Pay with Card (Stripe)</button>
+          <div id="paypal-vaultsync-pro"></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -260,6 +279,7 @@ var STRIPE_PRICES = {
   'ipv6auto-professional':   'price_REPLACE_IPV6AUTO_PRO',
   'caan-professional':       'price_REPLACE_CAAN_PRO',
   'firemigrate-professional': 'price_REPLACE_FIREMIGRATE_PRO',
+  'vaultsync-professional':  'price_REPLACE_VAULTSYNC_PRO',
 };
 
 function stripeCheckout(productId) {
