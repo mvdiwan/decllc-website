@@ -204,7 +204,7 @@
     <div class="store-note">
       <h3>Download Community Edition</h3>
       <p style="color:var(--text-muted);max-width:600px;margin:8px auto 16px;">The Community tier includes the base host agent, documentation, and community support via GitHub Issues. Free forever for up to 2 hosts.</p>
-      <a href="https://github.com/mvdiwan/IVMIA/releases" class="pay-btn pay-stripe" style="display:inline-block;width:auto;padding:12px 32px;background:var(--teal);">Download from GitHub</a>
+      <button class="pay-btn pay-stripe" style="display:inline-block;width:auto;padding:12px 32px;background:var(--teal);" onclick="showSignup('community')">Sign Up for Free</button>
     </div>
   </div>
 </section>
@@ -263,14 +263,13 @@ var STRIPE_PRICES = {
 };
 
 function stripeCheckout(productId) {
+  // Payments not yet active — collect signup instead
+  showSignup(productId);
+  return;
+  // --- Payment integration below activates when Stripe keys are set ---
   var priceId = STRIPE_PRICES[productId];
   if (!priceId || priceId.startsWith('price_REPLACE')) {
-    // Stripe not configured yet — show contact info
-    window.location.href = 'mailto:sales@decllc.biz?subject=Purchase%20' +
-      encodeURIComponent(productId) +
-      '&body=I%20would%20like%20to%20purchase%20' +
-      encodeURIComponent(productId) +
-      '.%20Please%20send%20payment%20details.';
+    showSignup(productId);
     return;
   }
 
@@ -349,6 +348,73 @@ document.addEventListener('DOMContentLoaded', function() {
   renderPayPalButton('paypal-caan-pro', 'caan-pro');
   renderPayPalButton('paypal-firemigrate-pro', 'firemigrate-pro');
 });
+</script>
+
+
+<!-- Signup Modal -->
+<div id="signup-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:200;justify-content:center;align-items:center;">
+  <div style="background:#fff;border-radius:16px;padding:40px;max-width:440px;width:90%;position:relative;">
+    <button onclick="closeSignup()" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;">&times;</button>
+    <h2 style="color:var(--primary);margin-bottom:8px;">Get Started</h2>
+    <p id="signup-product" style="color:var(--text-muted);margin-bottom:20px;"></p>
+    <form onsubmit="submitSignup(event)">
+      <div style="margin-bottom:12px;">
+        <label style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:4px;">Full Name</label>
+        <input type="text" id="signup-name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;font-size:1rem;">
+      </div>
+      <div style="margin-bottom:12px;">
+        <label style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:4px;">Company</label>
+        <input type="text" id="signup-company" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;font-size:1rem;">
+      </div>
+      <div style="margin-bottom:12px;">
+        <label style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:4px;">Email</label>
+        <input type="email" id="signup-email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;font-size:1rem;">
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:4px;">Phone (optional)</label>
+        <input type="tel" id="signup-phone" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;font-size:1rem;">
+      </div>
+      <button type="submit" class="pay-btn pay-stripe" style="width:100%;">Register &amp; Continue</button>
+    </form>
+    <p style="font-size:0.8rem;color:#999;margin-top:12px;text-align:center;">We'll send your license key and download instructions to your email.</p>
+  </div>
+</div>
+
+<script>
+var currentProduct = '';
+function showSignup(productId) {
+  currentProduct = productId;
+  var names = {
+    'ivmia-professional': 'IVMIA Professional — $330/mo per host',
+    'nivmia-professional': 'NIVMIA Professional — $330/mo per 5 devices',
+    'openutm-professional': 'OpenUTM Professional — $330/mo per firewall pair',
+    'ipv6auto-professional': 'IPv6Auto Professional — $330/mo',
+    'caan-professional': 'CAAN System Tools Professional — $330/mo',
+    'firemigrate-professional': 'FireMigrate Professional — $330/mo',
+    'community': 'Community Edition — Free (up to 2 hosts)',
+  };
+  document.getElementById('signup-product').textContent = names[productId] || productId;
+  document.getElementById('signup-modal').style.display = 'flex';
+}
+function closeSignup() {
+  document.getElementById('signup-modal').style.display = 'none';
+}
+function submitSignup(e) {
+  e.preventDefault();
+  var data = {
+    product: currentProduct,
+    name: document.getElementById('signup-name').value,
+    company: document.getElementById('signup-company').value,
+    email: document.getElementById('signup-email').value,
+    phone: document.getElementById('signup-phone').value,
+  };
+  // For now, send via mailto — later this hits an API
+  var subject = 'Product Registration: ' + currentProduct;
+  var body = 'Name: ' + data.name + '\nCompany: ' + data.company + '\nEmail: ' + data.email + '\nPhone: ' + data.phone + '\nProduct: ' + currentProduct;
+  window.location.href = 'mailto:sales@decllc.biz?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  closeSignup();
+  alert('Thank you for registering! We will send your license key and download instructions to ' + data.email + ' shortly.');
+}
 </script>
 
 </body>
