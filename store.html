@@ -57,47 +57,43 @@
 <!-- Professional Tier Products -->
 <section>
   <div class="container">
-    <h2>Professional Subscriptions</h2>
-    <p class="subtitle">$330/month per product. 30-day evaluation period included.</p>
+    <h2>Product Subscriptions</h2>
+    <p class="subtitle">Flexible tiers for every product. 30-day evaluation period included.</p>
 
     <div class="store-grid">
 
-      <!-- IVMIA Professional -->
+      <!-- IVMIA -->
       <div class="store-card">
-        <h3>IVMIA Professional</h3>
+        <h3>IVMIA</h3>
         <div class="tier">Virtualization Management</div>
-        <div class="price-line">$330<span>/mo per host</span></div>
+        <div class="price-line">From $49<span>/mo</span></div>
         <ul>
-          <li>2 platforms included (choose any 2)</li>
-          <li>Full collector suite for selected platforms</li>
-          <li>Web dashboards + REST API</li>
-          <li>Email support (48hr response)</li>
-          <li>Federated multi-site support</li>
-          <li>Quarterly updates</li>
+          <li><strong>Community</strong>: Free — 5 hosts, 4 platforms</li>
+          <li><strong>Standard</strong>: $49/mo — 10 hosts</li>
+          <li><strong>Professional</strong>: $199/mo — 25 hosts</li>
+          <li><strong>Enterprise</strong>: $599/mo — 50 hosts</li>
         </ul>
-        <p class="details">Additional platforms and extensions available — <a href="mailto:sales@decllc.biz">contact us</a> for pricing.</p>
+        <p class="details"><a href="products/ivmia-pricing.html">See full IVMIA pricing</a> including platform add-ons.</p>
         <div class="payment-buttons">
-          <button class="pay-btn pay-stripe" onclick="stripeCheckout('ivmia-professional')">Pay with Card (Stripe)</button>
+          <button class="pay-btn pay-stripe" onclick="stripeCheckout('ivmia-professional')">Subscribe (Stripe)</button>
           <div id="paypal-ivmia-pro"></div>
         </div>
       </div>
 
-      <!-- NIVMIA Professional -->
+      <!-- NIVMIA -->
       <div class="store-card">
-        <h3>NIVMIA Professional</h3>
+        <h3>NIVMIA</h3>
         <div class="tier">Network Infrastructure Management</div>
-        <div class="price-line">$330<span>/mo per 5 devices</span></div>
+        <div class="price-line">From $49<span>/mo</span></div>
         <ul>
-          <li>2 platforms included (choose any 2)</li>
-          <li>SNMP/LLDP/CDP discovery</li>
-          <li>Network topology mapping</li>
-          <li>Email support (48hr response)</li>
-          <li>Configuration backup</li>
-          <li>Quarterly updates</li>
+          <li><strong>Community</strong>: Free — 7 platforms, 10 devices</li>
+          <li><strong>Standard</strong>: $49/mo — 20 devices</li>
+          <li><strong>Professional</strong>: $199/mo — 30 devices</li>
+          <li><strong>Enterprise</strong>: $599/mo — 50 devices</li>
         </ul>
-        <p class="details">Additional platforms available — <a href="mailto:sales@decllc.biz">contact us</a>.</p>
+        <p class="details"><a href="products/nivmia-pricing.html">See full NIVMIA pricing</a> including enterprise plugins and device bundles.</p>
         <div class="payment-buttons">
-          <button class="pay-btn pay-stripe" onclick="stripeCheckout('nivmia-professional')">Pay with Card (Stripe)</button>
+          <button class="pay-btn pay-stripe" onclick="stripeCheckout('nivmia-professional')">Subscribe (Stripe)</button>
           <div id="paypal-nivmia-pro"></div>
         </div>
       </div>
@@ -218,11 +214,11 @@
 <section>
   <div class="container">
     <h2>Community Edition (Free)</h2>
-    <p class="subtitle">Get started with up to 2 managed hosts. No credit card required.</p>
+    <p class="subtitle">Get started for free. No credit card required.</p>
 
     <div class="store-note">
       <h3>Download Community Edition</h3>
-      <p style="color:var(--text-muted);max-width:600px;margin:8px auto 16px;">The Community tier includes the base host agent, documentation, and community support via GitHub Issues. Free forever for up to 2 hosts.</p>
+      <p style="color:var(--text-muted);max-width:600px;margin:8px auto 16px;">NIVMIA: 7 platforms, 10 devices, monitor only. IVMIA: 5 hosts, 4 platforms, monitor only. Free forever with registration.</p>
       <button class="pay-btn pay-stripe" style="display:inline-block;width:auto;padding:12px 32px;background:var(--teal);" onclick="showSignup('community')">Sign Up for Free</button>
     </div>
   </div>
@@ -405,13 +401,14 @@ var currentProduct = '';
 function showSignup(productId) {
   currentProduct = productId;
   var names = {
-    'ivmia-professional': 'IVMIA Professional — $330/mo per host',
-    'nivmia-professional': 'NIVMIA Professional — $330/mo per 5 devices',
+    'ivmia-professional': 'IVMIA — from $49/mo',
+    'nivmia-professional': 'NIVMIA — from $49/mo',
     'openutm-professional': 'OpenUTM Professional — $330/mo per firewall pair',
     'ipv6auto-professional': 'IPv6Auto Professional — $330/mo',
     'caan-professional': 'CAAN System Tools Professional — $330/mo',
     'firemigrate-professional': 'FireMigrate Professional — $330/mo',
-    'community': 'Community Edition — Free (up to 2 hosts)',
+    'vaultsync-professional': 'VaultSync Professional — $330/mo per hypervisor host',
+    'community': 'Community Edition — Free',
   };
   document.getElementById('signup-product').textContent = names[productId] || productId;
   document.getElementById('signup-modal').style.display = 'flex';

@@ -13,7 +13,6 @@
     <a href="../index.html" class="logo">
       <img src="../assets/icon-only.jpg" alt="DEC-LLC">
       <div class="logo-text"><span class="logo-name">DEC-LLC</span><svg class="logo-squiggle" viewBox="0 0 80 6" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 Q10 0, 20 3 Q30 6, 40 3 Q50 0, 60 3 Q70 6, 80 3" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none"/></svg><span class="logo-slogan">Open Ideas</span></div>
-      
     </a>
     <ul>
       <li><a href="../index.html#products">Products</a></li>
@@ -26,54 +25,192 @@
   </div>
 </nav>
 
+<!-- Hero -->
 <section class="hero">
   <div class="container">
     <h1>NIVMIA</h1>
     <p>Network Infrastructure Visualization, Management, Inventory & Analytics</p>
-    <p style="opacity:0.7;font-size:1rem;">Complete visibility into your network infrastructure — switches, routers, firewalls, and more.</p>
-    <a href="../index.html#pricing" class="cta">Start Free Trial</a>
-    <a href="#features" class="cta-secondary">See Features</a>
+    <p style="opacity:0.7;font-size:1rem;">17 vendor platforms. Monitor, manage, and analyze your entire network estate.</p>
+    <a href="nivmia-pricing.html" class="cta">Start Free with 7 Platforms</a>
+    <a href="#platforms" class="cta-secondary">See Platforms</a>
   </div>
 </section>
 
-<section id="features">
+<!-- Platform Grid -->
+<section id="platforms">
   <div class="container">
-    <h2>Key Capabilities</h2>
-    <p class="subtitle">NIVMIA discovers, maps, and manages your entire network estate. From SNMP discovery to firewall rule analysis.</p>
-    <div class="product-grid">
-      <div class="product-card">
-        <h3>Multi-Vendor Discovery</h3>
-        <p>SNMP, LLDP, CDP, and SSH-based discovery across Cisco, Juniper, Aruba, Arista, FortiGate, Palo Alto, Ruckus, and more.</p>
+    <h2>17 Vendor Platforms</h2>
+    <p class="subtitle">From community switches to enterprise data center fabrics. Two tiers: Community (free with registration, monitor only) and Enterprise (paid subscription, monitor + manage).</p>
+
+    <h3 style="color:var(--teal);font-size:1.1rem;margin-bottom:16px;text-align:center;">Community Platforms — Free with Registration, Monitor Only</h3>
+    <div class="product-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); margin-bottom:40px;">
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F6E1;</div>
+        <h3>firewalld</h3>
+        <p>Linux firewall management via CLI</p>
+        <span class="badge badge-opensource">Free</span>
       </div>
-      <div class="product-card">
-        <h3>Network Topology Mapping</h3>
-        <p>Automatic L2/L3 topology visualization showing switch interconnections, VLAN memberships, and routing paths.</p>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F6E1;</div>
+        <h3>OPNsense / pfSense</h3>
+        <p>Open-source firewalls via SSH + API</p>
+        <span class="badge badge-opensource">Free</span>
       </div>
-      <div class="product-card">
-        <h3>Firewall Rule Analysis</h3>
-        <p>Parse and analyze firewall rulesets from multiple vendors. Identify shadows, conflicts, and unused rules.</p>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A7;</div>
+        <h3>TRENDnet TEG</h3>
+        <p>Managed switches via SSH, SNMP, telnet</p>
+        <span class="badge badge-opensource">Free</span>
       </div>
-      <div class="product-card">
-        <h3>Configuration Backup</h3>
-        <p>Automated configuration backups for switches and routers with version tracking and diff comparison.</p>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A7;</div>
+        <h3>TP-Link SG3428</h3>
+        <p>Managed switches via SSH + SNMP</p>
+        <span class="badge badge-opensource">Free</span>
       </div>
-      <div class="product-card">
-        <h3>SNMP Monitoring</h3>
-        <p>Poll SNMP counters for interface utilization, error rates, and environmental sensors. Integrates with Prometheus/Grafana.</p>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A7;</div>
+        <h3>D-Link DGS</h3>
+        <p>Managed switches via SSH + SNMP</p>
+        <span class="badge badge-opensource">Free</span>
       </div>
-      <div class="product-card">
-        <h3>Switch Port Mapping</h3>
-        <p>See what's connected to every switch port — MAC addresses, VLANs, PoE status, and connected device identification.</p>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A7;</div>
+        <h3>Netgear ProSafe</h3>
+        <p>Managed switches via SNMP</p>
+        <span class="badge badge-opensource">Free</span>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F4F6;</div>
+        <h3>Ubiquiti UniFi</h3>
+        <p>APs and switches via API</p>
+        <span class="badge badge-opensource">Free</span>
+      </div>
+    </div>
+
+    <h3 style="color:var(--accent-dark);font-size:1.1rem;margin-bottom:16px;text-align:center;">Enterprise Platforms — Paid Monthly Subscription</h3>
+    <div class="product-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A7;</div>
+        <h3>Cisco IOS / IOS-XE</h3>
+        <p>Switches and routers via SSH, SNMP, telnet</p>
+        <span class="badge badge-commercial">Enterprise</span>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A7;</div>
+        <h3>Cisco NX-OS</h3>
+        <p>Data center switches via SSH + SNMP</p>
+        <span class="badge badge-commercial">Enterprise</span>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A7;</div>
+        <h3>Juniper JunOS</h3>
+        <p>Switches and routers via SSH (XML)</p>
+        <span class="badge badge-commercial">Enterprise</span>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F6E1;</div>
+        <h3>Palo Alto PAN-OS</h3>
+        <p>Next-gen firewalls via SSH + API</p>
+        <span class="badge badge-commercial">Enterprise</span>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F6E1;</div>
+        <h3>FortiGate</h3>
+        <p>UTM firewalls via SSH + API</p>
+        <span class="badge badge-commercial">Enterprise</span>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A7;</div>
+        <h3>Arista EOS</h3>
+        <p>Data center switches via SSH + SNMP</p>
+        <span class="badge badge-commercial">Enterprise</span>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A7;</div>
+        <h3>Aruba AOS-S</h3>
+        <p>Campus switches via SSH + SNMP</p>
+        <span class="badge badge-commercial">Enterprise</span>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F5A7;</div>
+        <h3>MokerLink</h3>
+        <p>Industrial switches via SSH + SNMP</p>
+        <span class="badge badge-commercial">Enterprise</span>
+      </div>
+      <div class="product-card" style="text-align:center;padding:20px;">
+        <div style="font-size:2rem;">&#x1F527;</div>
+        <h3>More Coming</h3>
+        <p>MikroTik, VyOS, Cisco ASA</p>
+        <span class="badge badge-commercial">Roadmap</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Key Features -->
+<section id="features" style="background:#fff;">
+  <div class="container">
+    <h2>Key Features</h2>
+    <p class="subtitle">Everything you need to monitor, manage, and analyze your network infrastructure.</p>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>Multi-Vendor Collection</h3>
+        <p>SSH, SNMP, telnet, and API access methods across all 17 platforms. Run any single method or any combination. Method failures never block other methods from completing.</p>
+      </div>
+      <div class="product-card">
+        <h3>Configuration Vault</h3>
+        <p>Git-backed configuration versioning with golden copy management. Full diff history, tag known-good configs, and track every change with auditable commits.</p>
+      </div>
+      <div class="product-card">
+        <h3>Monitor vs Manage</h3>
+        <p>Capability-based licensing. Community tier provides read-only monitoring. Professional and Enterprise tiers unlock full configuration management with pre-check, apply, post-check, and rollback.</p>
+      </div>
+      <div class="product-card">
+        <h3>AI-Powered Analysis</h3>
+        <p>On-premises AI analysis powered by local Ollama models. Device analysis, config anomaly detection, and advisory recommendations. Your data never leaves your network.</p>
+      </div>
+      <div class="product-card">
+        <h3>Pluggable Architecture</h3>
+        <p>Per-platform RPM and DEB packages. Install only the vendor plugins you need. Each plugin is self-contained with its own orchestrator, collectors, and distributors.</p>
+      </div>
+      <div class="product-card">
+        <h3>Prometheus + Grafana</h3>
+        <p>Built-in metrics exporter with 12 metrics: device up/down, CPU, memory, temperature, uptime, interface count, and collection stats. Pre-built Grafana dashboards included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture -->
+<section>
+  <div class="container">
+    <h2>Architecture</h2>
+    <p class="subtitle">Pluggable, configuration-driven, platform-isolated by design.</p>
+    <div style="max-width:800px;margin:0 auto;background:#fff;padding:32px;border-radius:var(--radius);box-shadow:var(--shadow);">
+      <pre style="font-size:0.85rem;line-height:1.5;color:var(--text-muted);overflow-x:auto;">
+NIVMIA Core (PostgreSQL + CLI + Scheduler + Web UI)
+    |
+    +-- Super Orchestrator (license-gated platform execution)
+    |       +-- 7 Community Plugins (free, monitor only)
+    |       +-- 10 Enterprise Plugins (paid, monitor/manage/analyze)
+    |
+    +-- Config Vault (git-backed, golden copies, diff tracking)
+    +-- Prometheus Exporter (12 metrics, Grafana dashboards)
+    +-- AI Analysis (local Ollama, on-premises, advisory only)
+    +-- Scheduler (YAML jobs, daemon mode, SIGHUP reload)
+      </pre>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
 <section style="background:linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);color:#fff;text-align:center;">
   <div class="container">
-    <h2 style="color:#fff;">Ready to get started with NIVMIA?</h2>
-    <p style="opacity:0.8;max-width:500px;margin:12px auto 24px;">Start free with up to 2 hosts. Professional plans from $330/mo per product.</p>
-    <a href="../index.html#pricing" class="cta" style="background:#fff;color:var(--primary);">View Pricing</a>
+    <h2 style="color:#fff;">Start free with 7 platforms and 10 devices</h2>
+    <p style="opacity:0.8;max-width:600px;margin:12px auto 24px;">Community tier includes firewalld, OPNsense, TRENDnet, TP-Link, D-Link, Netgear, and Ubiquiti. Professional plans from $49/mo.</p>
+    <a href="nivmia-pricing.html" class="cta" style="background:#fff;color:var(--primary);">View Pricing</a>
     <a href="mailto:sales@decllc.biz" class="cta-secondary">Contact Sales</a>
   </div>
 </section>
@@ -87,10 +224,13 @@
     </div>
     <div class="footer-links">
       <a href="../index.html#products">Products</a>
-      <a href="../index.html#pricing">Pricing</a>
+      <a href="nivmia-pricing.html">NIVMIA Pricing</a>
+      <a href="../store.html">Store</a>
       <a href="../index.html#contact">Contact</a>
+      <a href="mailto:info@decllc.biz">info@decllc.biz</a>
     </div>
   </div>
 </footer>
+
 </body>
 </html>
